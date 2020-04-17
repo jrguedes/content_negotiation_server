@@ -34,5 +34,17 @@ consign()
 	.then('app/controllers')
 	.into(app);
 
+
+app.use(function(req, res, next){
+	res.status(404).render('errors/404');
+	next();
+});
+
+//erros internos
+app.use(function(err,req, res, next){
+	res.status(500).render('errors/500');
+	next();
+});
+
 /* exportar o objeto app */
 module.exports = app;

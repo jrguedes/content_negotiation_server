@@ -1,5 +1,9 @@
 module.exports = function (application) {
 	application.get('/', function (req, res) {
+		
+		//força o erro 500 pois renderiza uma view que nao existe
+		//res.render('xyz');
+		
 		res.format({
 			html: function () {
 				res.send('Bem vindo a sua app NodeJS!');
@@ -11,7 +15,6 @@ module.exports = function (application) {
 				res.json(retorno);
 			}
 		});
-
 	});
 
 	application.post('/', function(req, res){
